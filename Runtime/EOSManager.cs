@@ -54,6 +54,7 @@ using System;
 using System.IO;
 using AOT;
 
+#if !EOS_DISABLE
 using UnityEngine;
 using Epic.OnlineServices.Platform;
 using Epic.OnlineServices;
@@ -65,9 +66,11 @@ using UnityEngine.Assertions;
 using System.Diagnostics;
 using System.Collections;
 using Epic.OnlineServices.UI;
+#endif
 
 namespace PlayEveryWare.EpicOnlineServices
 {
+    #if !EOS_DISABLE
     /// <summary>
     /// One of the responsibilities of this class is to manage the lifetime of
     /// the EOS SDK and to be the interface for getting all the managed EOS interfaces.
@@ -1453,4 +1456,5 @@ namespace PlayEveryWare.EpicOnlineServices
             base.StartCoroutine(routine);
         }
     }
+#endif
 }

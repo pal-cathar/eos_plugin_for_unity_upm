@@ -19,8 +19,9 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-
+#if !EOS_DISABLE
 using Epic.OnlineServices.Platform;
+#endif
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -102,7 +103,7 @@ namespace PlayEveryWare.EpicOnlineServices
         {
             return (T)Enum.ToObject(typeof(T), value);
         }
-
+#if !EOS_DISABLE
         //-------------------------------------------------------------------------
         public static Epic.OnlineServices.IntegratedPlatform.IntegratedPlatformManagementFlags flagsAsIntegratedPlatformManagementFlags(List<string> flags)
         {
@@ -186,7 +187,7 @@ namespace PlayEveryWare.EpicOnlineServices
 
             return toReturn;
         }
-
+#endif
         //-------------------------------------------------------------------------
         /// <summary>
         /// Creates a shallow copy of the current <c>EOSConfig</c>
@@ -215,6 +216,7 @@ namespace PlayEveryWare.EpicOnlineServices
         }
 
 
+#if !EOS_DISABLE
         //-------------------------------------------------------------------------
         public PlatformFlags platformOptionsFlagsAsPlatformFlags()
         {

@@ -1,9 +1,15 @@
 {
     "name": "com.playeveryware.eos",
+    "rootNamespace": "",
     "references": [
         "GUID:be1f6e9efffcfce41aeb5c2f4c27cf75"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor",
+        "LinuxStandalone64",
+        "WindowsStandalone32",
+        "WindowsStandalone64"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

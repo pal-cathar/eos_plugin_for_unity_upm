@@ -28,7 +28,7 @@ namespace PlayEveryWare.EpicOnlineServices
     {
         public partial class EOSSingleton
         {
-
+#if !EOS_DISABLE
             //-------------------------------------------------------------------------j
             /// <summary>
             /// Helper to get the Auth interface.
@@ -214,6 +214,7 @@ namespace PlayEveryWare.EpicOnlineServices
             {
                 return GetEOSPlatformInterface().GetUserInfoInterface();
             }
+#endif
         }
     }
 }

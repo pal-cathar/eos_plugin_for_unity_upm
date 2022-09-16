@@ -56,6 +56,10 @@ public class DLLHandle : SafeHandle
         string pluginsPath = Path.Combine(Application.dataPath, "Plugins");
         string packagedPluginPath = Path.GetFullPath(Path.Combine("Packages", GetPackageName(), "Runtime"));
         var pluginPaths = new List<string>();
+        
+#if EOS_DISABLE
+        return pluginPaths;
+#endif
 
         pluginPaths.Add(pluginsPath);
         pluginPaths.Add(packagedPluginPath);
@@ -214,9 +218,11 @@ public class DLLHandle : SafeHandle
             return true;
         }
         bool didUnload = true;
-#if !UNITY_EDITOR
-        didUnload = SystemDynamicLibrary.Instance.UnloadLibrary(handle);
-        print("Unloading a Dll with result : " + didUnload);
+#if !EOS_DISABLE
+    #if !UNITY_EDITOR
+            didUnload = SystemDynamicLibrary.Instance.UnloadLibrary(handle);
+            print("Unloading a Dll with result : " + didUnload);
+    #endif
 #endif
         SetHandle(IntPtr.Zero);
         return didUnload;

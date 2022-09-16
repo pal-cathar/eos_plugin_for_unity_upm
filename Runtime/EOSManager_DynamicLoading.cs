@@ -46,10 +46,10 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System;
-
+#if !EOS_DISABLE
 using Epic.OnlineServices.Platform;
 using Epic.OnlineServices;
-
+#endif
 
 namespace PlayEveryWare.EpicOnlineServices
 {
@@ -60,10 +60,11 @@ namespace PlayEveryWare.EpicOnlineServices
         /// </summary>
         public partial class EOSSingleton
         {
+ #if !EOS_DISABLE
             static private PlatformInterface s_eosPlatformInterface;
 
             public const string EOSBinaryName = Epic.OnlineServices.Config.LibraryName;
-
+#endif
 #if USE_EOS_GFX_PLUGIN_NATIVE_RENDER
 //#if UNITY_WSA
                         //delegate void UnloadEOS_delegate();
@@ -355,6 +356,7 @@ namespace PlayEveryWare.EpicOnlineServices
                 LoadDelegatesByHand();
 #endif
             }
+#endif
         }
     }
 }

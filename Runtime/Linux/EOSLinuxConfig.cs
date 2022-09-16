@@ -50,11 +50,12 @@ namespace PlayEveryWare.EpicOnlineServices
 
         }
 
-
+#if !EOS_DISABLE
         //-------------------------------------------------------------------------
         public Epic.OnlineServices.IntegratedPlatform.IntegratedPlatformManagementFlags flagsAsIntegratedPlatformManagementFlags()
         {
             return EOSConfig.flagsAsIntegratedPlatformManagementFlags(flags);
         }
+#endif
     }
 }

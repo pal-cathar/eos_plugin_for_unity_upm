@@ -37,7 +37,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+#if !EOS_DISABLE
 using Epic.OnlineServices.Platform;
 using Epic.OnlineServices;
 using Epic.OnlineServices.Auth;
@@ -45,7 +45,7 @@ using Epic.OnlineServices.Logging;
 using System.Runtime.InteropServices;
 using System.Text;
 using Epic.OnlineServices.IntegratedPlatform;
-
+#endif
 #if !UNITY_EDITOR_WIN && (UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX)
 namespace PlayEveryWare.EpicOnlineServices
 {

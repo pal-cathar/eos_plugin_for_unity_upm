@@ -19,9 +19,10 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-
+#if !EOS_DISABLE
 using Epic.OnlineServices;
 using Epic.OnlineServices.Platform;
+#endif
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,12 +43,13 @@ namespace PlayEveryWare.EpicOnlineServices
         System.IntPtr ReallocateMemoryFunction { get; set; }
 
         System.IntPtr ReleaseMemoryFunction { get; set; }
-
+#if !EOS_DISABLE
         Utf8String ProductName { get; set; }
 
         Utf8String ProductVersion { get; set; }
 
         InitializeThreadAffinity? OverrideThreadAffinity { get; set; }
+#endif
     }
 
     //-------------------------------------------------------------------------
@@ -60,6 +62,7 @@ namespace PlayEveryWare.EpicOnlineServices
     public interface IEOSCreateOptions
     {
         System.IntPtr Reserved { get; set; }
+#if !EOS_DISABLE
         Utf8String ProductId { get; set; }
         Utf8String SandboxId { get; set; }
         ClientCredentials ClientCredentials { get; set; }
@@ -74,6 +77,7 @@ namespace PlayEveryWare.EpicOnlineServices
 
 #if !(UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX)
         Epic.OnlineServices.IntegratedPlatform.IntegratedPlatformOptionsContainer IntegratedPlatformOptionsContainerHandle { get; set; }
+#endif
 #endif
     }
 
@@ -138,11 +142,11 @@ namespace PlayEveryWare.EpicOnlineServices
 
         IEOSCreateOptions CreateSystemPlatformOption();
         void ConfigureSystemPlatformCreateOptions(ref IEOSCreateOptions createOptions);
-
+#if !EOS_DISABLE
         Epic.OnlineServices.Result InitializePlatformInterface(IEOSInitializeOptions options);
 
         Epic.OnlineServices.Platform.PlatformInterface CreatePlatformInterface(IEOSCreateOptions platformOptions);
-
+#endif
         void InitializeOverlay(IEOSCoroutineOwner owner);
 
         void RegisterForPlatformNotifications();
