@@ -129,7 +129,7 @@ namespace PlayEveryWare.EpicOnlineServices
 #endif
             }
 
-
+#if !EOS_DISABLE
             //-------------------------------------------------------------------------
             public PlatformInterface GetEOSPlatformInterface()
             {

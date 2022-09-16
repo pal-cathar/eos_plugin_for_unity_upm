@@ -337,5 +337,6 @@ namespace PlayEveryWare.EpicOnlineServices
             }
             return value;
         }
+#endif
     }
 }
