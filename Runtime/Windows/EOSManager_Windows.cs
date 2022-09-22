@@ -38,16 +38,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+#if !EOS_DISABLE
 using Epic.OnlineServices.Platform;
 using Epic.OnlineServices;
 using Epic.OnlineServices.Auth;
 using Epic.OnlineServices.Logging;
+#endif
 using System.Runtime.InteropServices;
 using System.Text;
 
 #if (UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN || UNITY_WSA_10_0)
 namespace PlayEveryWare.EpicOnlineServices
 {
+	
+#if !EOS_DISABLE
     //-------------------------------------------------------------------------
     public class EOSWindowsOptions : IEOSCreateOptions
     {
@@ -325,5 +329,6 @@ static string SteamDllName = "steam_api.dll";
         }
     }
 }
+#endif
 #endif
 
