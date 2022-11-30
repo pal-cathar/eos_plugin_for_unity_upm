@@ -49,6 +49,8 @@ using Epic.OnlineServices.IntegratedPlatform;
 #if !UNITY_EDITOR_WIN && (UNITY_STANDALONE_LINUX || UNITY_EDITOR_LINUX)
 namespace PlayEveryWare.EpicOnlineServices
 {
+	
+#if !EOS_DISABLE
     //-------------------------------------------------------------------------
     public class EOSLinuxOptions : IEOSCreateOptions
     {
@@ -327,3 +329,4 @@ static string SteamDllName = "steam_api.dll";
 }
 #endif
 
+#endif
