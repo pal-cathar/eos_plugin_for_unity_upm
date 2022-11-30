@@ -326,7 +326,7 @@ static string SteamDllName = "steam_api.dll";
             return false;
         }
     }
+#endif
 }
 #endif
 
-#endif
